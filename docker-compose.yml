@@ -3,8 +3,8 @@ services:
   db:
     image: postgres:14
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: task_manager
+      POSTGRES_PASSWORD: task_manager_password
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
