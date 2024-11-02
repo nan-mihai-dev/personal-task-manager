@@ -1,7 +1,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: task_manager
-  password: task_manager_password
+  username: task_manager_user
+  password: task_manager_user_password
   host: db
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: task_manager_development
+
+production:
+  <<: *default
+  database: task_manager_production
+  username: <%= ENV['TASK_MANAGER_DATABASE_USERNAME'] %>
+  password: <%= ENV['TASK_MANAGER_DATABASE_PASSWORD'] %>

@@ -2,8 +2,9 @@ services:
   db:
     image: postgres:14
     environment:
-      POSTGRES_USER: task_manager
-      POSTGRES_PASSWORD: task_manager_password
+      POSTGRES_USER: task_manager_user
+      POSTGRES_PASSWORD: task_manager_user_password
+      POSTGRES_DB: task_manager_development
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
@@ -19,7 +20,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: "postgres://postgres:password@db:5432/my_rails_app_development"
+      DATABASE_URL: "postgres://task_manager_user:task_manager_user_password@db:5432/task_manager_development"
 
 volumes:
   db_data:
