@@ -11,12 +11,25 @@
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/favicon.ico" type="image/png">
-    <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="margin: 0">
+    <div class="base-layout">
+      <div class="logo">
+        Task Manager
+      </div>
+      <div class="menu">
+        <div class="menu-item">
+          <%= link_to "Tasks", tasks_path, class: "menu-button" %>
+        </div>
+        <div class="menu-item">
+          <%= link_to "Projects", projects_path, class: "menu-button" %>
+        </div>
+      </div>
+
+    </div>
     <%= yield %>
   </body>
 </html>

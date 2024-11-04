@@ -1,0 +1,29 @@
+<div id="<%= dom_id project %>">
+  <p>
+    <strong>Title:</strong>
+    <%= project.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= project.description %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= project.status %>
+  </p>
+
+  <p>
+    <strong>Due date:</strong>
+    <%= project.due_date %>
+  </p>
+
+  <p>
+    <strong> Project Tasks </strong>
+    <% project.tasks.each do |task| %>
+      <%= render task %>
+    <% end %>
+  </p>
+
+</div>

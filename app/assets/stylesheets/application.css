@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+.base-layout{
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    background-color: #48b;
+    height: 8vh;
+}
+
+.logo{
+    font-size: 24px;
+    font-family: Bodoni;
+    margin-right: 40px;
+    font-weight: bold;
+    color: white;
+}
+
+.menu{
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.menu-item{
+    color: white;
+    padding: 6px;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+.menu-button{
+    color: white;
+    text-decoration: none;
+}
+
+.menu-button:hover{
+
+}
