@@ -15,21 +15,36 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="margin: 0">
-    <div class="base-layout">
+  <body class="base-layout">
+    <div class="header">
       <div class="logo">
         Task Manager
       </div>
-      <div class="menu">
-        <div class="menu-item">
-          <%= link_to "Tasks", tasks_path, class: "menu-button" %>
-        </div>
-        <div class="menu-item">
-          <%= link_to "Projects", projects_path, class: "menu-button" %>
-        </div>
+    </div>
+    <div class="content">
+      <div class="tabs">
+        <%= link_to "Tasks", tasks_path, class: "tab", id: "tasks-tab" %>
+        <%= link_to "Projects", projects_path, class: "tab", id: "projects-tab" %>
       </div>
 
+      <!-- This will display the main content of tasks or projects -->
+      <div class="tab-content">
+        <%= yield %>
+      </div>
     </div>
-    <%= yield %>
   </body>
 </html>
+
+
+<script>
+    $(document).on("DOMContentLoaded", function () {
+        const tasksTab = document.getElementById("tasks-tab");
+        const projectsTab = document.getElementById("projects-tab");
+
+        if (window.location.pathname.includes("projects")) {
+            projectsTab.classList.add("active");
+        } else {
+            tasksTab.classList.add("active");
+        }
+    })
+</script>

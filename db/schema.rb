@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_04_143002) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_07_105933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,5 +34,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_04_143002) do
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
-  add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "projects", on_delete: :cascade
 end

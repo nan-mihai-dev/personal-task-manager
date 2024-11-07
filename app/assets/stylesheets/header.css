@@ -1,0 +1,15 @@
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    border-bottom: 3px solid #9f9f9f;
+}
+
+.logo{
+    font-size: 38px;
+    font-family: 'Brush Script MT', cursive;
+    font-weight: bold;
+    color: white;
+}
