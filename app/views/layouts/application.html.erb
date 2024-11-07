@@ -27,7 +27,6 @@
         <%= link_to "Projects", projects_path, class: "tab", id: "projects-tab" %>
       </div>
 
-      <!-- This will display the main content of tasks or projects -->
       <div class="tab-content">
         <%= yield %>
       </div>
@@ -35,9 +34,8 @@
   </body>
 </html>
 
-
-<script>
-    $(document).on("DOMContentLoaded", function () {
+<script type="module">
+    $(document).on("turbo:load", function () {
         const tasksTab = document.getElementById("tasks-tab");
         const projectsTab = document.getElementById("projects-tab");
 
