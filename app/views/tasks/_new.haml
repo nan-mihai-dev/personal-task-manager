@@ -1,0 +1,21 @@
+.task-container
+  +
+  .task-input-wrapper{onclick: 'showInputField()'}
+    = form_tag create_task_path, class: 'task-form', id: 'task-form' do
+      = text_field_tag :title, nil, placeholder: 'Enter task title', class: 'task-title', onfocus: 'highlightInput()'
+      = date_field_tag :due_date, nil, class: 'task-due-date'
+      %div.action-buttons.hidden
+        %button.check{type: 'button', onclick: 'this.form.submit();'} ✓
+        %button.cancel{type: 'button', onclick: 'clearInput()'} ✗
+
+:javascript
+  function highlightInput() {
+    document.getElementById('task-form').classList.add('show-buttons');
+  }
+
+  function clearInput() {
+    const titleField = document.querySelector('.task-title');
+    titleField.value = '';
+    titleField.blur();  // Remove focus to hide buttons again if needed
+    document.getElementById('task-form').classList.remove('show-buttons');
+  }

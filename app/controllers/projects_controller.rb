@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(task_params)
+    @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @project.update(task_params)
+      if @project.update(project_params)
         format.html { redirect_to @project, notice: "Project was successfully updated." }
         format.json { render :show, status: :ok, location: @project }
       else
@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:task).permit(:title, :description, :status, :due_date)
+    params.require(:project).permit(:title, :description, :status, :due_date)
   end
 
 end

@@ -30,7 +30,50 @@
 
 .tab-content {
     width: 90%;
-    background-color: #444;
+    background-color: #9f9f9f;
     padding: 20px;
     border-radius: 8px;
 }
+
+#tasks{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.task-container{
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    border: 2px solid #252525;
+    border-radius: 10px;
+}
+
+.task-container:hover{
+    background-color: #807e7e;
+}
+
+.task-title {
+    padding: 10px;
+    transition: box-shadow 0.2s ease;
+}
+
+.task-title:focus {
+    box-shadow: 0 0 5px #0066cc;
+}
+
+.hidden {
+    display: none;
+}
+
+.action-buttons {
+    display: inline;
+    gap: 5px;
+    margin-left: 10px;
+    visibility: hidden
+}
+
+.show-buttons .hidden {
+    visibility: visible;
+}
+
