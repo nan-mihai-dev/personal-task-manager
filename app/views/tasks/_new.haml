@@ -1,21 +1,24 @@
-.task-container
-  +
-  .task-input-wrapper{onclick: 'showInputField()'}
-    = form_tag create_task_path, class: 'task-form', id: 'task-form' do
-      = text_field_tag :title, nil, placeholder: 'Enter task title', class: 'task-title', onfocus: 'highlightInput()'
-      = date_field_tag :due_date, nil, class: 'task-due-date'
-      %div.action-buttons.hidden
-        %button.check{type: 'button', onclick: 'this.form.submit();'} ✓
-        %button.cancel{type: 'button', onclick: 'clearInput()'} ✗
+.task-container.new-task{onclick: 'showForm();'}
+  %span#create-task-text
+    + Create task
+  = form_with model: @task, url: tasks_path, local: true, class: 'task-form hidden', id: 'task-form' do |f|
+    = f.text_field :title, placeholder: 'Enter task title', onfocus: 'highlightInput()'
+    = f.date_field :due_date, class: 'task-due-date'
+    %div.action-buttons.hidden
+      %button.check{type: 'button', onclick: 'this.form.submit();'} ✓
+      %button.cancel{type: 'button', onclick: 'clearInput()'} ✗
 
 :javascript
+  function showForm() {
+    document.getElementById('task-form').classList.remove('hidden');
+    document.getElementById('create-task-text').classList.add('hidden');
+  }
+
   function highlightInput() {
     document.getElementById('task-form').classList.add('show-buttons');
   }
 
   function clearInput() {
-    const titleField = document.querySelector('.task-title');
-    titleField.value = '';
-    titleField.blur();  // Remove focus to hide buttons again if needed
+    document.getElementById('task-form').classList.add('hidden');
     document.getElementById('task-form').classList.remove('show-buttons');
   }

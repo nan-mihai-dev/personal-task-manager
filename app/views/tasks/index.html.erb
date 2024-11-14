@@ -1,8 +1,11 @@
-<!--<p style="color: green"><%#= notice %></p>-->
+<p style="color: green"><%= notice %></p>
 
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-  <% end %>
-  <%= render partial: 'new' %>
+<div id="tasks-container">
+  <div id="tasks">
+    <% @tasks.each do |task| %>
+      <%= render task %>
+    <% end %>
+  </div>
+  <%= render 'new' %>
 </div>
+
