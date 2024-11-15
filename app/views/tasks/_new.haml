@@ -1,7 +1,7 @@
 .task-container.new-task{onclick: 'showForm();'}
   %span#create-task-text
     + Create task
-  = form_with model: @task, url: tasks_path, local: true, class: 'task-form hidden', id: 'task-form' do |f|
+  = form_with model: @task, class: 'task-form hidden', id: 'task-form' do |f|
     = f.text_field :title, placeholder: 'Enter task title', onfocus: 'highlightInput()'
     = f.date_field :due_date, class: 'task-due-date'
     %div.action-buttons.hidden

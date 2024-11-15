@@ -1,0 +1,8 @@
+%p{style: "color: green"}
+  = notice
+
+#tasks-container
+  #tasks
+    - @tasks.each do |task|
+      = render task
+  = render 'new'

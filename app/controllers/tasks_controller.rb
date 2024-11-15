@@ -10,6 +10,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find_by_id(params[:id])
   end
 
   def create
@@ -23,9 +24,9 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_back_or_to tasks_path, notice: "Task was successfully created."
+      redirect_back_or_to tasks_path, notice: "Task was successfully updated."
     else
-      redirect_back_or_to tasks_path, alert: "The task could not be created."
+      redirect_back_or_to tasks_path, alert: "The task could not be updated."
     end
   end
 

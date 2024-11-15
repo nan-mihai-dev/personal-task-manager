@@ -1,6 +1,5 @@
 .task-container{id: "task-#{task.id}"}
-  %span.title
-    %strong= task.title
+  = link_to task.title, edit_task_path(task.id), class: 'title edit-link'
   %span.due-date
     %strong
       Due Date:
