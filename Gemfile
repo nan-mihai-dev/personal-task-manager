@@ -35,6 +35,10 @@ gem 'haml'
 
 gem 'jquery-rails'
 
+gem "bootstrap", "~> 5.3"
+
+gem 'sassc-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

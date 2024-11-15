@@ -1,0 +1,15 @@
+@import "bootstrap";
+@import "content";
+@import "header";
+
+body{
+    background-color: #252525 !important;
+}
+
+.base-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
